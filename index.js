@@ -19,6 +19,14 @@ app.post('/summarize', (req,res) => {
   
 } )
 
+app.post('/texttospeech', (req, res) => {
+  const text = req.body.text_to_convert;
+  textToSpeech(text)
+    .then(audio => {
+      res.send(audio);
+    })
+})
+
 // Start the server
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}/`);
