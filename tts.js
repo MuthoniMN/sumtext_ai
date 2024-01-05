@@ -1,24 +1,22 @@
-const axios = require('axios');
-
 async function textToSpeech(text) {
-  let data = JSON.stringify({
+  const data = {
     "inputs": text
-  });
+  };
 
-  let config = {
+  const config = {
     method: 'post',
-    maxBodyLength: Infinity,
-    url: 'https://api-inference.huggingface.co/models/facebook/fastspeech2-en-ljspeech',
     headers: {
       'Content-Type': 'application/json',
       'Authorization': 'Bearer ' + process.env.ACCESS_TOKEN
     },
-    data: data
+    body: JSON.stringify(data)
   };
 
   try {
-    const response = await axios.request(config);
-    return response.json();
+    const response = await fetch("https://api-inference.huggingface.co/models/facebook/fastspeech2-en-ljspeech", config);
+    console.log(response);
+
+    return response.arrayBuffer()
   }
   catch (error) {
     console.log(error);

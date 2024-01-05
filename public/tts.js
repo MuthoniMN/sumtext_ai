@@ -21,7 +21,11 @@ submitBtn.addEventListener("click", () => {
 
   fetch("/texttospeech", requestOptions)
     .then(result => {
-      audioPlayer.innerHTML = result;
+      let blob = new Blob(
+        [result.arrayBuffer()], { type: "audio/mpeg" });
+      let audioUrl = URL.createObjectURL(blob);
+      audioPlayer.src = audioUrl;
+      console.log(audioUrl);
       submitBtn.classList.remove("submit-button--loading");
     })
     .catch(error => console.log('error', error));
