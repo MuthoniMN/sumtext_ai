@@ -23,6 +23,7 @@ button{
   padding: 12px 24px;
   border-radius: 12px;
   transition: all ease-in-out .7s;
+  font-family: 'Playfair Display', serif;
 }
 button>a{
   color:white;
@@ -39,7 +40,7 @@ img {
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Playfair Display', serif;
   background-color: #35155D;
   color: #fafafa;
   padding: 20px;
@@ -97,6 +98,7 @@ textarea {
   border: none;
   padding: 10px;
   margin-bottom: 10px;
+  font-family: 'Playfair Display', serif;
 }
 
 .submit-button {
