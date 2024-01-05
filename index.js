@@ -24,7 +24,7 @@ app.post('/texttospeech', (req, res) => {
   const text = req.body.text_to_convert;
   textToSpeech(text)
     .then(audio => {
-      res.send(JSON.stringify(audio));
+      res.send(audio);
     })
 })
 
